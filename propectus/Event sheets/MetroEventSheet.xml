@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MetroEventSheet</name>
+    <events>
+        <variable constant="0" name="life" sid="3190501002637869" static="0" type="number">100</variable>
+        <event-block sid="6836761320046243">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8760311518147802" type="System">
+                    <param id="0" name="Variable">life</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3492672076973742" type="System">
+                    <param id="0" name="Variable">isGameOver</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

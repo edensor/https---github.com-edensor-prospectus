@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>KillableEventSheet</name>
+    <events>
+        <event-block sid="4034779866683859">
+            <conditions>
+                <condition id="-18" name="On created" sid="2903184600976693" type="KillableFamily" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="4298578084918145" type="KillableFamily">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="2" name="Stop" sid="5273390022986707" type="KillableFamily" />
+            </actions>
+        </event-block>
+        <event-block sid="3731706274663315">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9293268693638299" type="KillableFamily">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="8583147492772207" type="KillableFamily">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="5194834312170677" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="9123154627030608" type="Score">
+                    <param id="0" name="Text">&quot;Score : &quot; &amp; score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3103390763278214">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="9920410436706521" type="KillableFamily" />
+                <condition id="9" name="Is overlapping at offset" sid="2532145144440441" type="KillableFamily">
+                    <param id="0" name="Object">Metro</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="1472310269816377" type="KillableFamily">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="3125293820138403" type="System">
+                    <param id="0" name="Variable">life</param>
+                    <param id="1" name="Value">KillableFamily.damage</param>
+                </action>
+                <action id="0" name="Set text" sid="5504839576447889" type="Life">
+                    <param id="0" name="Text">life &amp; &quot; %&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

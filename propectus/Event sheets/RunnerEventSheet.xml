@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>RunnerEventSheet</name>
+    <events>
+        <event-block sid="1664742384362503">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="3536604371493293" type="Runner">
+                    <param id="0" name="Object">Metro</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="6858737455160822" type="Runner" />
+            </actions>
+        </event-block>
+        <event-block sid="1857302687825802">
+            <conditions>
+                <condition id="-18" name="On created" sid="5685347520778873" type="Runner" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="875265370755062" type="Runner">
+                    <param id="0" name="Angle">angle(runner.X, runner.Y, metro.X, metro.Y)</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="5070961990129229" type="Runner">
+                    <param id="0" name="Speed">(random(0.5)+1)*Runner.Bullet.Speed</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

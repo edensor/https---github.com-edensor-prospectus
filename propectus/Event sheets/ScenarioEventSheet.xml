@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ScenarioEventSheet</name>
+    <events>
+        <variable constant="0" name="numberEnemies" sid="1496709697249871" static="0" type="number">0</variable>
+        <variable constant="0" name="randomAngle" sid="9361771638022299" static="0" type="number">0</variable>
+        <event-block sid="9822235487986392">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2402664269421647" type="System">
+                    <param id="0" name="Interval (seconds)">random(2)+1.5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="743004124187005" type="System">
+                    <param id="0" name="Variable">isGameOver</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5819451490642746" type="System">
+                    <param id="0" name="Variable">randomAngle</param>
+                    <param id="1" name="Value">random(360)</param>
+                </action>
+                <action id="-9" name="Set value" sid="6725460521716603" type="System">
+                    <param id="0" name="Variable">numberEnemies</param>
+                    <param id="1" name="Value">floor(random(1,4))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8185009686299764">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="3363771795807545" type="System">
+                            <param id="0" name="Count">numberEnemies</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="6167858499462493" type="System">
+                            <param id="0" name="Object to create">Runner</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">sqrt(LayoutWidth^2 + LayoutHeight^2) / 2 * cos(randomAngle + 10*loopindex) + (LayoutWidth/2)</param>
+                            <param id="3" name="Y">sqrt(LayoutWidth^2 + LayoutHeight^2) / 2 * sin(randomAngle +  10*loopindex) + (LayoutHeight/2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

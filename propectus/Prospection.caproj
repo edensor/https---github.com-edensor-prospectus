@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Prospection</name>
+    <description></description>
+    <version>0.1.0</version>
+    <author>Kevin and Marco</author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>18b0uc2b9bom4</unique-id>
+    <saved-with-version>23900</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1366</width>
+        <height>768</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Scene</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Scale outer</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="Batiments">
+            <object-type name="Metro" sid="2010791910687033">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="5188970664176155">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9066850105344416" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\metro.png">
+                            <collision-poly>
+                                <point x="0.145161" y="0.145161" />
+                                <point x="0.5" y="0" />
+                                <point x="0.854839" y="0.145161" />
+                                <point x="1" y="0.5" />
+                                <point x="0.854839" y="0.854839" />
+                                <point x="0.5" y="1" />
+                                <point x="0.145161" y="0.854839" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Movables">
+            <object-type name="Player" sid="9644159383827461">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="ScrollTo" sid="766188329239246">
+                        <behavior id="scrollto" />
+                    </behavior-type>
+                    <behavior-type name="8Direction" sid="2356287075076471">
+                        <behavior id="EightDir" />
+                    </behavior-type>
+                    <behavior-type name="BoundToLayout" sid="5381945243446299">
+                        <behavior id="bound" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5467981418292514" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\player.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Enemy" sid="2812042377298657">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6761709147268701" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\pnj.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\player.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="HUD">
+            <object-type name="Score" sid="7386206601845646">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="3706038276252925">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+            <object-type name="Life" sid="1686319951010775">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="GameOver">
+            <object-type name="GameOver" sid="1389012390584038">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="ScoreFinalText" sid="3222306385813645">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="ScoreFinalVar" sid="2830358441090307">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Retry" sid="1010220724888104">
+                <plugin id="Button" />
+            </object-type>
+        </object-folder>
+    </object-folder>
+    <families>
+        <family name="KillableFamily" plugin-id="Sprite" sid="5448243193112871">
+            <members>
+                <member>Enemy</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="damage" sid="5090811869375704" type="number" />
+            </instance-variables>
+        </family>
+        <family name="Runner" plugin-id="Sprite" sid="6764680670736143">
+            <members>
+                <member>Enemy</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Bullet" sid="6247906837867327">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Scene.xml</layout>
+        <layout>Pool.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Main.xml</event-sheet>
+        <event-sheet>KillableEventSheet.xml</event-sheet>
+        <event-sheet>RunnerEventSheet.xml</event-sheet>
+        <event-sheet>ScenarioEventSheet.xml</event-sheet>
+        <event-sheet>PlayerEventSheet.xml</event-sheet>
+        <event-sheet>GameOverEventSheet.xml</event-sheet>
+        <event-sheet>MetroEventSheet.xml</event-sheet>
+    </event-folder>
+    <global-instances />
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

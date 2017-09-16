@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameOverEventSheet</name>
+    <events>
+        <event-block sid="4334400353342905">
+            <conditions>
+                <condition id="0" name="On clicked" sid="7821379024974308" type="Retry" />
+                <condition id="-9" name="Layer is visible" sid="8580783710174076" type="System">
+                    <param id="0" name="Layer">LayerIndex(&quot;GameOver&quot;)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="8726689761640046" type="System" />
+                <action id="-21" name="Reset global variables" sid="4282641277193939" type="System" />
+                <action id="-4" name="Set layer visible" sid="5267417724007995" type="System">
+                    <param id="0" name="Layer">LayerIndex(&quot;GameOver&quot;)</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
