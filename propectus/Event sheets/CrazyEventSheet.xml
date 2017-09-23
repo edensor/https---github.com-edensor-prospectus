@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>CrazyEventSheet</name>
+    <events>
+        <event-block sid="105351411003482">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="365028452399228" type="CrazyFamily">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="395190796471807" type="CrazyFamily">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="597870893365533" type="CrazyFamily">
+                    <param id="0" name="Object">AOECrazy</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="6" name="Set speed" sid="140162655555157" type="AOECrazy">
+                    <param id="0" name="Speed">AOECrazy.AnimationFrameCount/AOECrazy.Fade.FadeOutTime</param>
+                </action>
+                <action id="-10" name="Set value" sid="723631753328898" type="AOECrazy">
+                    <param id="0" name="Instance variable">SourceUID</param>
+                    <param id="1" name="Value">CrazyFamily.UID</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

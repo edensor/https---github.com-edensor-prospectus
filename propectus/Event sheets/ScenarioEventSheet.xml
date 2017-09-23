@@ -8,7 +8,7 @@
         <event-block sid="9822235487986392">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="2402664269421647" type="System">
-                    <param id="0" name="Interval (seconds)">random(2)+1.5</param>
+                    <param id="0" name="Interval (seconds)">random(1)+0.5</param>
                 </condition>
                 <condition id="-14" name="Compare variable" sid="743004124187005" type="System">
                     <param id="0" name="Variable">isGameOver</param>
@@ -19,14 +19,19 @@
             <actions>
                 <action id="-9" name="Set value" sid="5819451490642746" type="System">
                     <param id="0" name="Variable">randomAngle</param>
-                    <param id="1" name="Value">random(360)</param>
+                    <param id="1" name="Value">-(random(140)+20)</param>
                 </action>
                 <action id="-9" name="Set value" sid="6725460521716603" type="System">
                     <param id="0" name="Variable">numberEnemies</param>
                     <param id="1" name="Value">floor(random(1,4))</param>
                 </action>
+                <action id="14" name="Log" sid="962260334549402" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">randomAngle</param>
+                </action>
             </actions>
             <sub-events>
+                <variable constant="0" name="rayon" sid="104850663567223" static="0" type="number">0</variable>
                 <event-block sid="8185009686299764">
                     <conditions>
                         <condition id="-12" name="Repeat" sid="3363771795807545" type="System">
@@ -34,11 +39,15 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-9" name="Set value" sid="128999878172821" type="System">
+                            <param id="0" name="Variable">rayon</param>
+                            <param id="1" name="Value">sqrt(LayoutWidth^2 + LayoutHeight^2) </param>
+                        </action>
                         <action id="-3" name="Create object" sid="6167858499462493" type="System">
                             <param id="0" name="Object to create">Runner</param>
                             <param id="1" name="Layer">0</param>
-                            <param id="2" name="X">sqrt(LayoutWidth^2 + LayoutHeight^2) / 2 * cos(randomAngle + 10*loopindex) + (LayoutWidth/2)</param>
-                            <param id="3" name="Y">sqrt(LayoutWidth^2 + LayoutHeight^2) / 2 * sin(randomAngle +  10*loopindex) + (LayoutHeight/2)</param>
+                            <param id="2" name="X">min(max(rayon * cos(randomAngle-loopindex*10) + Metro.X,-50),LayoutWidth+50)</param>
+                            <param id="3" name="Y">min(max(rayon * sin(randomAngle-loopindex*10) + Metro.Y,-50),LayoutHeight+50)</param>
                         </action>
                     </actions>
                 </event-block>

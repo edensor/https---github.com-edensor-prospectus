@@ -20,13 +20,99 @@
                 <condition id="-18" name="On created" sid="5685347520778873" type="Runner" />
             </conditions>
             <actions>
-                <action behavior="Bullet" id="3" name="Set angle of motion" sid="875265370755062" type="Runner">
-                    <param id="0" name="Angle">angle(runner.X, runner.Y, metro.X, metro.Y)</param>
-                </action>
-                <action behavior="Bullet" id="0" name="Set speed" sid="5070961990129229" type="Runner">
-                    <param id="0" name="Speed">(random(0.5)+1)*Runner.Bullet.Speed</param>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="499295740321079" type="Runner">
+                    <param id="0" name="Angle">angle(Runner.X,Runner.Y,Metro.X,Metro.Y)</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="199827652998319">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="273576442168267" type="Runner" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="412419997670544" type="Runner" />
+                <action behavior="Bullet" id="5" name="Set enabled" sid="605212045119001" type="Runner">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="778171663684149">
+            <conditions>
+                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="724002163218664" type="Runner" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="14" name="Log" sid="719162169224866" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;runner failed to find path&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="229722322059625">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="160945768164567" type="System">
+                    <param id="0" name="Interval (seconds)">0.3</param>
+                </condition>
+                <condition id="-11" name="For Each" sid="170450842258551" type="System">
+                    <param id="0" name="Object">Runner</param>
+                </condition>
+                <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="379330791267377" type="Runner" />
+                <condition behavior="Pathfinding" id="3" inverted="1" name="Is calculating path" sid="826288600543424" type="Runner" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="519207059664576" type="Runner">
+                    <param id="0" name="X">Metro.X</param>
+                    <param id="1" name="Y">Metro.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="632239516153824">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="801891717818216" type="Runner">
+                    <param id="0" name="Object">ClickZone</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="159749140427876">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="460589983405119" type="Runner">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="492385376188774" type="Runner">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="896766068123314">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="438682145839754" type="Runner">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">LayoutWidth</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="971806261169984" type="Runner">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="886967298971291">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="542574909534828" type="Runner">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="661380143787886" type="Runner">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

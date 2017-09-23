@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>AOEEventSheet</name>
+    <events>
+        <event-block sid="998047024804615">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="540324787565367" type="AOECrazy">
+                    <param id="0" name="Object">KillableFamily</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="698735224639791">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="315472501512244" type="System">
+                            <param id="0" name="First value">KillableFamily.UID</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">AOECrazy.SourceUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="866803034852854" type="KillableFamily">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

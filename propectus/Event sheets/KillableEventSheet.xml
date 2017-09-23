@@ -56,5 +56,21 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="336608688930752">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="337847376278116" type="KillableFamily" />
+                <condition id="-7" name="Compare instance variable" sid="978780222024041" type="Player">
+                    <param id="0" name="Instance variable">targetUID</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">KillableFamily.UID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="228439621291657" type="Player">
+                    <param id="0" name="Instance variable">targetUID</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -10,25 +10,28 @@
     <unique-id>18b0uc2b9bom4</unique-id>
     <saved-with-version>23900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
-        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
-        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
-        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1366</width>
-        <height>768</height>
+        <width>320</width>
+        <height>480</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -38,7 +41,7 @@
         <prop name="Clear background">Yes</prop>
         <prop name="Downscaling">Medium quality</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Scale outer</prop>
+        <prop name="Fullscreen in browser">Off</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Construct 2 splash</prop>
         <prop name="Orientations">Any</prop>
@@ -53,11 +56,6 @@
         <object-folder name="Batiments">
             <object-type name="Metro" sid="2010791910687033">
                 <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="Solid" sid="5188970664176155">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9066850105344416" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\metro.png">
@@ -77,22 +75,12 @@
             </object-type>
         </object-folder>
         <object-folder name="Movables">
-            <object-type name="Player" sid="9644159383827461">
+            <object-type name="DefaultHero" sid="9644159383827461">
                 <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="ScrollTo" sid="766188329239246">
-                        <behavior id="scrollto" />
-                    </behavior-type>
-                    <behavior-type name="8Direction" sid="2356287075076471">
-                        <behavior id="EightDir" />
-                    </behavior-type>
-                    <behavior-type name="BoundToLayout" sid="5381945243446299">
-                        <behavior id="bound" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5467981418292514" speed="5">
+                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5467981418292514" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\player.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -102,6 +90,44 @@
                     <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6761709147268701" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\pnj.png" />
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Kev\Documents\Labs\Infection\player.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="bully" sid="208610479480674">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="133287632320263" speed="5">
+                        <frame duration="1" hotspotX="-0.2" hotspotY="1.012">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Crazy" sid="733146477906109">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="389546745437568" speed="5">
+                        <frame duration="1" hotspotX="0.504" hotspotY="0.504" original-source="C:\Users\user\Documents\Construc 2 Project\CVD\branches\Construct\Animations\BreedCircle\Default\001.png">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.504" hotspotY="0.504">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -118,6 +144,14 @@
             <object-type name="Life" sid="1686319951010775">
                 <plugin id="Text" />
             </object-type>
+            <object-type name="DownBar" sid="789893783984988">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="394748478371731" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="GameOver">
             <object-type name="GameOver" sid="1389012390584038">
@@ -133,10 +167,43 @@
                 <plugin id="Button" />
             </object-type>
         </object-folder>
+        <object-folder name="utils">
+            <object-type name="ClickZone" sid="902354079744992">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="296000691760290" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Mouse" sid="918077020943117">
+                <plugin id="Mouse" />
+            </object-type>
+            <object-type name="Browser" sid="572919962020564">
+                <plugin id="Browser" />
+            </object-type>
+            <object-type name="Function" sid="569835704135058">
+                <plugin id="Function" />
+            </object-type>
+        </object-folder>
+        <object-folder name="AOE">
+            <object-type name="AOECrazy" sid="522462778896473">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="555573870999591" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Documents\Construc 2 Project\CVD\branches\Construct\Animations\Explosion\Default\000.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Documents\Construc 2 Project\CVD\branches\Construct\Animations\Explosion\Default\001.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Documents\Construc 2 Project\CVD\branches\Construct\Animations\Explosion\Default\002.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Documents\Construc 2 Project\CVD\branches\Construct\Animations\Explosion\Default\003.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
     </object-folder>
     <families>
         <family name="KillableFamily" plugin-id="Sprite" sid="5448243193112871">
             <members>
+                <member>Crazy</member>
                 <member>Enemy</member>
             </members>
             <instance-variables>
@@ -145,11 +212,63 @@
         </family>
         <family name="Runner" plugin-id="Sprite" sid="6764680670736143">
             <members>
+                <member>bully</member>
+                <member>Crazy</member>
                 <member>Enemy</member>
             </members>
             <behaviors>
-                <behavior-type name="Bullet" sid="6247906837867327">
+                <behavior-type name="Pathfinding" sid="163039248345635">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="728812497631156">
                     <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="Player" plugin-id="Sprite" sid="764551428124457">
+            <members>
+                <member>DefaultHero</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="targetUID" sid="366673344663869" type="number" />
+                <instance-variable name="forceMove" sid="504719978659789" type="boolean" />
+                <instance-variable name="TargetX" sid="149459129829424" type="number" />
+                <instance-variable name="TargetY" sid="644852775328299" type="number" />
+                <instance-variable name="rangePath" sid="307555880699363" type="number" />
+                <instance-variable name="taunt" sid="583176272712371" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="684104518256111">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Pathfinding" sid="351643111009964">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+                <behavior-type name="Timer" sid="731759795210661">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="BullyFamily" plugin-id="Sprite" sid="419604554754841">
+            <members>
+                <member>bully</member>
+            </members>
+        </family>
+        <family name="CrazyFamily" plugin-id="Sprite" sid="870672262720588">
+            <members>
+                <member>Crazy</member>
+            </members>
+        </family>
+        <family name="AOEFamily" plugin-id="Sprite" sid="714275278117419">
+            <members>
+                <member>AOECrazy</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="SourceUID" sid="316287867081490" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Fade" sid="137971807901440">
+                    <behavior id="Fade" />
                 </behavior-type>
             </behaviors>
         </family>
@@ -166,8 +285,16 @@
         <event-sheet>PlayerEventSheet.xml</event-sheet>
         <event-sheet>GameOverEventSheet.xml</event-sheet>
         <event-sheet>MetroEventSheet.xml</event-sheet>
+        <event-sheet>Control.xml</event-sheet>
+        <event-sheet>BullyEventSheet.xml</event-sheet>
+        <event-sheet>CrazyEventSheet.xml</event-sheet>
+        <event-sheet>AOEEventSheet.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Mouse" uid="10" />
+        <global-instance type="Browser" uid="12" />
+        <global-instance type="Function" uid="13" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>

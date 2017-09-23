@@ -3,6 +3,275 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>PlayerEventSheet</name>
     <events>
+        <variable constant="0" name="timeTaunt" sid="194065092156843" static="0" type="number">1</variable>
+        <variable constant="0" name="PlayerUID" sid="759260659793604" static="0" type="number">0</variable>
         <variable constant="0" name="score" sid="188622735838509" static="0" type="number">0</variable>
+        <event-block sid="970026770386924">
+            <conditions>
+                <condition id="-18" name="On created" sid="727996310105765" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="617843409662548" type="System">
+                    <param id="0" name="Variable">PlayerUID</param>
+                    <param id="1" name="Value">Player.UID</param>
+                </action>
+                <action id="2" name="Stop" sid="256152345668958" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="540145686324712">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="529677070674954" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">DownBar.Y-Player.Height/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="662284517700580" type="Player">
+                    <param id="0" name="Y">DownBar.Y-Player.Height/2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="876801819511735">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="510411595430840" type="Player" />
+                <condition disabled="1" id="-8" inverted="1" name="Is boolean instance variable set" sid="836299051470923" type="Player">
+                    <param id="0" name="Instance variable">taunt</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="413965437705250" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="297984770683347">
+            <conditions>
+                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="656293671448750" type="Player" />
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="577116963004838" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;player failed to find path&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="714104424867358" type="Player">
+                    <param id="0" name="Instance variable">targetUID</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="900797313507889">
+            <conditions>
+                <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="470412297935665" type="Player" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="236834097334282">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="362125972966858" type="KillableFamily">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="176845925914001" type="KillableFamily">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">Player.X</param>
+                            <param id="2" name="Y">Player.Y</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="942110803694285" type="KillableFamily">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">Player.Width/2</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="703587500246464" type="KillableFamily">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">LayoutWidth-Player.Width/2</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="384404452525473" type="KillableFamily">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">Player.Height/2</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="600892333185914" type="KillableFamily">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - Player.Height/2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="218403658611436" type="System">
+                            <param id="0" name="First value">distance(Player.X,Player.Y,KillableFamily.X,KillableFamily.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">Player.rangePath</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="165380437593009" type="Function">
+                            <param id="0" name="Name">&quot;goChaseTarget&quot;</param>
+                            <param id="1" name="Parameter {n}">KillableFamily.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="102385038285841">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="566817406267158" type="Player">
+                    <param id="0" name="Object">KillableFamily</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="410398309852224">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="120955336366066" type="Player">
+                            <param id="0" name="Instance variable">targetUID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">KillableFamily.UID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="105086747442787" type="Player">
+                            <param id="0" name="Instance variable">targetUID</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="905067244965580">
+            <conditions>
+                <condition behavior="Pathfinding" id="5" name="On arrived" sid="227020160386169" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="516773666424265" type="Player">
+                    <param id="0" name="Instance variable">forceMove</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="159895443029394">
+            <conditions>
+                <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="353912232442371" type="Player" />
+                <condition id="-7" name="Compare instance variable" sid="631665502422210" type="Player">
+                    <param id="0" name="Instance variable">targetUID</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="402077413253551" type="Player">
+                    <param id="0" name="Instance variable">forceMove</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="475356430047338">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="833407999565572" type="KillableFamily">
+                            <param id="0" name="Unique ID">Player.targetUID</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="511271260391752" type="KillableFamily">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="885548086154946">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="660237016087301" type="System">
+                                    <param id="0" name="First value">distance(Player.TargetX,Player.TargetY,KillableFamily.X,KillableFamily.Y)</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="142090461601798" type="Function">
+                                    <param id="0" name="Name">&quot;goChaseTarget&quot;</param>
+                                    <param id="1" name="Parameter {n}">KillableFamily.UID</param>
+                                </action>
+                                <action disabled="1" id="14" name="Log" sid="910107581130095" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;recalcule path&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="535231448142892">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="779663112415110" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="378099927385769" type="Player">
+                            <param id="0" name="Instance variable">targetUID</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="733373543646740">
+            <conditions>
+                <condition id="0" name="On function" sid="784748586785461" type="Function">
+                    <param id="0" name="Name">&quot;goChaseTarget&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="14" name="Log" sid="866046845203099" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;gochase&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="155694108323534">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="529586711850878" type="KillableFamily">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="306593934107862" type="Player">
+                            <param id="0" name="X">KillableFamily.X</param>
+                            <param id="1" name="Y">KillableFamily.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="302549002148110" type="Player">
+                            <param id="0" name="Instance variable">targetUID</param>
+                            <param id="1" name="Value">KillableFamily.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="161410240254098" type="Player">
+                            <param id="0" name="Instance variable">TargetX</param>
+                            <param id="1" name="Value">KillableFamily.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="899275324642204" type="Player">
+                            <param id="0" name="Instance variable">TargetY</param>
+                            <param id="1" name="Value">KillableFamily.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="594563676621231">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="912567972916655" type="Runner">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="548572802724272" type="Player">
+                            <param id="0" name="X">Runner.X + cos(Runner.Bullet.AngleOfMotion)*Runner.Bullet.Speed*dt</param>
+                            <param id="1" name="Y">Runner.Y + sin(Runner.Bullet.AngleOfMotion)*Runner.Bullet.Speed*dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="741433728017370">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="416622379487526" type="Player">
+                    <param id="0" name="Tag">&quot;taunt&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="957891224673548" type="Player">
+                    <param id="0" name="Instance variable">taunt</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Pathfinding" id="3" name="Set enabled" sid="206234308087289" type="Player">
+                    <param id="0" name="Set">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="804974438898280" type="Player">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

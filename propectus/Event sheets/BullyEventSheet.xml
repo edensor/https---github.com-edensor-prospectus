@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>BullyEventSheet</name>
+    <events>
+        <event-block sid="613692512884753">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="682575199907332" type="BullyFamily">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="369946477994581" type="Player">
+                    <param id="0" name="Instance variable">taunt</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="876474830039500" type="Player">
+                    <param id="0" name="Duration">timeTaunt</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;taunt&quot;</param>
+                </action>
+                <action behavior="Pathfinding" id="2" name="Stop" sid="707570092297589" type="Player" />
+                <action behavior="Pathfinding" id="3" name="Set enabled" sid="934204014911106" type="Player">
+                    <param id="0" name="Set">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="383206341757035" type="Player">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

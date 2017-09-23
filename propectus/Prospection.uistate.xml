@@ -10,7 +10,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="0">Scene</layout>
+        <layout order="0">Scene</layout>
         <event-sheet order="1">Main</event-sheet>
         <event-sheet order="2">KillableEventSheet</event-sheet>
         <event-sheet order="3">RunnerEventSheet</event-sheet>
@@ -18,23 +18,33 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="5">PlayerEventSheet</event-sheet>
         <event-sheet order="6">GameOverEventSheet</event-sheet>
         <event-sheet order="7">MetroEventSheet</event-sheet>
+        <event-sheet order="8">Control</event-sheet>
+        <event-sheet order="9">BullyEventSheet</event-sheet>
+        <event-sheet active="1" order="10">CrazyEventSheet</event-sheet>
+        <event-sheet order="11">AOEEventSheet</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
         <property expanded="1" name="Project settings" />
-        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Window Size" />
         <property expanded="1" name="Configuration Settings" />
     </properties>
     <families-expanded root="1">
         <family expanded="1" name="KillableFamily" />
         <family expanded="1" name="Runner" />
+        <family expanded="1" name="Player" />
+        <family expanded="0" name="BullyFamily" />
+        <family expanded="0" name="CrazyFamily" />
+        <family expanded="1" name="AOEFamily" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="0" path="object-folder/Batiments/" />
+        <folder expanded="1" path="object-folder/Batiments/" />
         <folder expanded="1" path="object-folder/Movables/" />
         <folder expanded="1" path="object-folder/HUD/" />
         <folder expanded="1" path="object-folder/GameOver/" />
+        <folder expanded="1" path="object-folder/utils/" />
+        <folder expanded="1" path="object-folder/AOE/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
@@ -42,7 +52,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/Metro/" />
-        <folder expanded="1" path="animation-folder/Player/" />
+        <folder expanded="1" path="animation-folder/DefaultHero/" />
         <folder expanded="1" path="animation-folder/Enemy/" />
+        <folder expanded="1" path="animation-folder/bully/" />
+        <folder expanded="1" path="animation-folder/Crazy/" />
+        <folder expanded="1" path="animation-folder/DownBar/" />
+        <folder expanded="1" path="animation-folder/ClickZone/" />
+        <folder expanded="1" path="animation-folder/AOECrazy/" />
     </folders-expanded>
 </c2uistate>
