@@ -272,6 +272,11 @@
                 </behavior-type>
             </behaviors>
         </family>
+        <family name="FearableFamily" plugin-id="Sprite" sid="133273896822215">
+            <members>
+                <member>Enemy</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout>Scene.xml</layout>

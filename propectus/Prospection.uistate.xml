@@ -20,8 +20,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="7">MetroEventSheet</event-sheet>
         <event-sheet order="8">Control</event-sheet>
         <event-sheet order="9">BullyEventSheet</event-sheet>
-        <event-sheet active="1" order="10">CrazyEventSheet</event-sheet>
-        <event-sheet order="11">AOEEventSheet</event-sheet>
+        <event-sheet order="10">CrazyEventSheet</event-sheet>
+        <event-sheet active="1" order="11">AOEEventSheet</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -36,6 +36,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <family expanded="0" name="BullyFamily" />
         <family expanded="0" name="CrazyFamily" />
         <family expanded="1" name="AOEFamily" />
+        <family expanded="1" name="FearableFamily" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />

@@ -45,7 +45,7 @@
                                 <cell-size>10</cell-size>
                                 <cell-border>-1</cell-border>
                                 <obstacles>Custom</obstacles>
-                                <max-speed>100</max-speed>
+                                <max-speed>40</max-speed>
                                 <acceleration>1000</acceleration>
                                 <deceleration>1000</deceleration>
                                 <rotate-speed>135</rotate-speed>
@@ -93,7 +93,7 @@
                                 <cell-size>30</cell-size>
                                 <cell-border>-1</cell-border>
                                 <obstacles>Solids</obstacles>
-                                <max-speed>150</max-speed>
+                                <max-speed>80</max-speed>
                                 <acceleration>1000</acceleration>
                                 <deceleration>2000</deceleration>
                                 <rotate-speed>135</rotate-speed>
@@ -144,7 +144,7 @@
                                 <cell-size>10</cell-size>
                                 <cell-border>-1</cell-border>
                                 <obstacles>Custom</obstacles>
-                                <max-speed>80</max-speed>
+                                <max-speed>30</max-speed>
                                 <acceleration>1000</acceleration>
                                 <deceleration>1000</deceleration>
                                 <rotate-speed>135</rotate-speed>
